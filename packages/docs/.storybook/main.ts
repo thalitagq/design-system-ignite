@@ -25,6 +25,13 @@ const config: StorybookConfig = {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
+  viteFinal: (config, { configType }) => {
+    if(configType === 'PRODUCTION'){
+      config.base = "/design-system-ignite";
+    }
+
+    return config
+  } ,
   docs: {
     autodocs: true,
   },
